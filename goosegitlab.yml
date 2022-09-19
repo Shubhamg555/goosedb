@@ -1,19 +1,24 @@
-image:
+   name:
+on:
+   push:
 
-variables:
-  DBDRIVER:
-  DBSTRING: 
-  FILENAME:
-  FILETYPE:  
-  MIGRATEOPTIONS:      
+jobs:
+  code-checkout:
+    name: checkout from SCM
+    uses: actions/checkout@v3
+    with:
+    repository:
+    path:
 
-stages:
-  - db-migration
+  db-migration:
+    runs-on: ubuntu-latest
+        env:
+           DBDRIVER:
+           DBSTRING: 
+           FILENAME:
+           FILETYPE:  
+           MIGRATEOPTIONS:      
 
-db_build:
-  stage: db-migration
-  script:
-   
-    - sh 'goose create $FILENAME $FILETYPE'
-    - sh 'goose $DBDRIVER $DBSTRING status'
-    - sh 'goose $DBDRIVER $DBSTRING $MIGRATEOPTIONS'
+       run:  - sh 'goose create $FILENAME $FILETYPE'
+             - sh 'goose $DBDRIVER $DBSTRING status'
+             - sh 'goose $DBDRIVER $DBSTRING $MIGRATEOPTIONS'
