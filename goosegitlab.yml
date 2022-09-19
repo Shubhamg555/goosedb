@@ -1,0 +1,19 @@
+image:
+
+variables:
+  DBDRIVER:
+  DBSTRING: 
+  FILENAME:
+  FILETYPE:  
+  MIGRATEOPTIONS:      
+
+stages:
+  - db-migration
+
+db_build:
+  stage: db-migration
+  script:
+   
+    - sh 'goose create $FILENAME $FILETYPE'
+    - sh 'goose $DBDRIVER $DBSTRING status'
+    - sh 'goose $DBDRIVER $DBSTRING $MIGRATEOPTIONS'
