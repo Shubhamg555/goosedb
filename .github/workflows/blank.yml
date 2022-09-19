@@ -12,13 +12,13 @@ jobs:
 
   db-migration:
     runs-on: ubuntu-latest
-        env:
+    env:
            DBDRIVER: "postgres"
            DBSTRING: "user=postgres dbname=aaic sslmode=disable password=Shauryadb@22 host=localhost"
            FILENAME: "xyz"
            FILETYPE: "sql"
            MIGRATEOPTIONS: "up"  
 
-       run:  - sh 'goose create $FILENAME $FILETYPE'
+         run:  - sh 'goose create $FILENAME $FILETYPE'
              - sh 'goose $DBDRIVER $DBSTRING status'
              - sh 'goose $DBDRIVER $DBSTRING $MIGRATEOPTIONS'
