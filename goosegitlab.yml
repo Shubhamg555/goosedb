@@ -1,7 +1,7 @@
-name:
+name: DB Deployment using goose
 on:
-   push:
-
+   push: 
+     branches: [master]
 jobs:
   code-checkout:
     name: checkout from SCM
