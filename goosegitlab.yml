@@ -7,8 +7,8 @@ jobs:
     name: checkout from SCM
     uses: actions/checkout@v3
     with:
-       repository: goosedb/main
-       path: main
+       repository: 
+       path: 
 
   db-migration:
     runs-on: ubuntu-latest
