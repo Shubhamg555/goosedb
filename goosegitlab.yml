@@ -1,23 +1,23 @@
 name: DB Deployment using goose
 on:
    push: 
-     branches: [main]
+     branches: 
 jobs:
   code-checkout:
     name: checkout from SCM
     uses: actions/checkout@v3
     with:
-       repository: Shubhamg555/goosedb
-       path: main
+       repository: 
+       path: 
 
   db-migration:
     runs-on: ubuntu-latest
     env:
-           DBDRIVER: "postgres"
-           DBSTRING: "user=postgres dbname=aaic password=Shauryadb@22 host=localhost sslmode=disable"
-           FILENAME: "xyx"
-           FILETYPE: "sql"
-           MIGRATEOPTIONS:  "up"
+           DBDRIVER: 
+           DBSTRING: 
+           FILENAME: 
+           FILETYPE:
+           MIGRATEOPTIONS: 
 
     run:  
         - sh 'goose create $FILENAME $FILETYPE'
