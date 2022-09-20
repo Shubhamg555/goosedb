@@ -7,8 +7,8 @@ jobs:
     name: checkout from SCM
     uses: actions/checkout@v3
     with:
-       repository: 
-       path: 
+       repository: pressly/goose
+       path: master
 
   db-migration:
     runs-on: ubuntu-latest
