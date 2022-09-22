@@ -1,0 +1,24 @@
+name: DB Deployment using goose
+on:
+   push: 
+     branches: [main]
+jobs:
+  code-checkout:
+    name: checkout from SCM
+    uses: actions/checkout@v3
+    with:
+       repository: Shubhamg555/goosedb
+       path: ${{ github.workspace }}
+
+  db-migration:
+    runs-on: ubuntu-latest
+    env:
+           DB_USER: 'postgres'
+           DB_PASSWORD: 'Shauryadb@22'
+           DB_NAME: 'aaic'
+           DB_HOST: 'localhost'
+
+    run:  
+        - echo "goose commands started"
+        - sh './goose postgres "user=$DB_USER password=$DB_PASSWORD dbname=$DB_NAME sslmode=disable host=DB_HOST" up'
+        - echo "goose commands completed"
